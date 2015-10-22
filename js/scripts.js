@@ -3,24 +3,40 @@
 // When clicking submit, hide the current question and show the next question
 // At the end, show how many questions they got right out of 5
 
-
+// Record the number of correct answers
 var correctAnswers;
+
+// Initialise variable to add html to
 var html;
+
+// Find the total number of questions available
 var totalQuestions = document.getElementsByTagName("fieldset").length;
-var currentQId = 0;
+
+// Store the ID number of the current question
+var currentQId;
+
+// Variable to store the submit button
+var submitButton = document.getElementById("submit");
+
+
 
 // Show the first question
 function init(){
 	
+	// Start off with 0 correct answers
 	correctAnswers = 0;
+
+	// Select the first question
+	currentQId = 0;	
 	var activeQ =  document.getElementById("question" + currentQId);
 
+	// Show the first question
 	activeQ.classList.add("active");
 }
 
 // Check if the selected value is the correct answer
 function checkAns(value, correctAnswer){
-	console.log(correctAnswer);
+	
 	if (value == correctAnswer){
 
 		return true;
@@ -30,6 +46,7 @@ function checkAns(value, correctAnswer){
 	}
 }
 
+// Finds the correct answer from the questions.js file
 function findAnswer(index){
 	
 	return questionsArray[index][1];
@@ -38,22 +55,26 @@ function findAnswer(index){
 // Find the radio button with the "checked" attribute
 function findAnsweredQuestion(nameAttrib){
 	
+	//List the inputs from that question
 	var posAnswers = document.getElementsByName(nameAttrib);
 
+	// Go through all of the inputs
 	for (var i = 0; i < posAnswers.length; i++){
 	    
+	    // find the input that the user clicked on
 		if ( posAnswers[i].checked ) {
+
+			// Return the value of the user selected answer
 		    return posAnswers[i].value;
 
 		}	
 	}
 }
 
+// Main function that fires when the submit button is clicked
 function nextQuestion(){
 	
 	
-
-
 
 		// get the active fieldset of questions
 		var activeQuestion = document.getElementById("question" + currentQId);
@@ -76,23 +97,35 @@ function nextQuestion(){
 
 		// show next question
 		currentQId++;
+
 		//check if there is a next question
-		if (currentQId < totalQuestions){
+		if (currentQId + 1 < totalQuestions){
+
+			// Add one to the current question ID
+			currentQId++;
+
+			// Select the new question fieldset
 			var newQ =  document.getElementById("question" + currentQId);
 
+			// Show the new question
 			newQ.classList.add("active");
-		}	
+			
+		}
+		
+		// If there is not another question then remove the submit button and show the number of correctly answered questions
 		else {
+
 			document.getElementById("submit").style.display="none";
 			html = "<h3> You got " + correctAnswers + " correct!" + "</h3>";
 			print(html);
+
 		}
 	
 	
 
 }
 
-var submitButton = document.getElementById("submit");
+
 
 // submitButton.addEventListener("click", checkAllAnswers);
 
