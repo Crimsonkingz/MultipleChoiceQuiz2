@@ -1,12 +1,20 @@
+body {
+	font-size: 12px;
+}
+h1 {
+	font-size: 2em;
+	font-family: sans-serif;
+	margin: 0 auto 1%;
+	text-align: center;
+}
+
 h3 {
-  margin: 2px;
+	margin: 1% 1%;
+	font-size: 1.5em;
+	font-family: sans-serif;
+
 }
-/*form {
-  display: none;
-}
-.active {
-  display:block;
-}*/
+
 @keyframes answer {
 	0% {color: #00FFFF;}
 	25% {color: #0000FF;}
@@ -16,16 +24,49 @@ h3 {
 }
 
 h4 {
-	text-shadow: 1px 1px #000;
+	font-size: 1.4em;
 	animation-name: answer;
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
+	text-align: center;
 }
 
 fieldset {
+	padding: 1% 1%;
 	display: none;
 }
 
+input {
+	margin:2% 2%;
+}
+
 .active {
+	font-size: 1.2em;
 	display:block;
+}
+
+#buttonDiv {
+	text-align: center;
+	margin: 1% auto;
+
+}
+
+#questionsDiv {
+	margin:0% auto;
+	max-width: 50%;
+}
+
+#resultsDiv {
+	margin: 1% auto;
+	text-align: center;
+}
+
+@media (max-width: 640px) {
+
+	body {
+		font-size:10px;
+	}
+	#questionsDiv {
+		max-width: 75%;
+	}
 }

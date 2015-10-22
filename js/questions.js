@@ -1,7 +1,7 @@
 window.questionsArray = [
-["How many states are there in the USA?", 50],
+["Give me food and I shall live, give me water and I shall die. What am I?", "FIRE"],
 ["How many continents are there?", 7], 
-["How many legs does an insect have?", 6],
-["What is the capital of Spain?", "MADRID"],
+["What do you call a particle of light?", "PHOTON"],
+["What do cows drink?", "WATER"],
 ["In which hemisphere can you find polar bears?", "NORTHERN"]
 ];

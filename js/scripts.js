@@ -95,15 +95,12 @@ function nextQuestion(){
 		activeQuestion.classList.remove("active");
 		
 
-		// show next question
+		// Add one to quest counter
 		currentQId++;
 
 		//check if there is a next question
-		if (currentQId + 1 < totalQuestions){
-
-			// Add one to the current question ID
-			currentQId++;
-
+		if (currentQId < totalQuestions){
+			
 			// Select the new question fieldset
 			var newQ =  document.getElementById("question" + currentQId);
 
@@ -111,14 +108,21 @@ function nextQuestion(){
 			newQ.classList.add("active");
 			
 		}
-		
+
 		// If there is not another question then remove the submit button and show the number of correctly answered questions
 		else {
 
 			document.getElementById("submit").style.display="none";
-			html = "<h3> You got " + correctAnswers + " correct!" + "</h3>";
+			html = "<h4> You got " + correctAnswers + " correct!" + "</h4>";
 			print(html);
 
+
+			var restart = document.createElement("button");
+			restart.innerHTML = "Restart Quiz";
+			restart.addEventListener("click", null);
+
+			var output = document.getElementById("resultsDiv");
+			output.appendChild(restart);
 		}
 	
 	
