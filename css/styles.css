@@ -1,0 +1,31 @@
+h3 {
+  margin: 2px;
+}
+/*form {
+  display: none;
+}
+.active {
+  display:block;
+}*/
+@keyframes answer {
+	0% {color: #00FFFF;}
+	25% {color: #0000FF;}
+	50%	{color: yellow;}
+	75% {color: red;}
+	100%{color: #00FFFF;}
+}
+
+h4 {
+	text-shadow: 1px 1px #000;
+	animation-name: answer;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+
+fieldset {
+	display: none;
+}
+
+.active {
+	display:block;
+}
