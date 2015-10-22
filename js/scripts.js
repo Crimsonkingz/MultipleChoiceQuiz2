@@ -18,11 +18,18 @@ var currentQId;
 // Variable to store the submit button
 var submitButton = document.getElementById("submit");
 
-
-
 // Show the first question
 function init(){
-	
+
+	// If restarting clear the end game text and restart button
+	if (currentQId >= totalQuestions) {
+	// Hide end score text
+	document.getElementById("scoreText").style.display="none";
+
+	// Hide restart button
+	document.getElementById("restartButton").style.display="none";
+	}
+
 	// Start off with 0 correct answers
 	correctAnswers = 0;
 
@@ -32,6 +39,9 @@ function init(){
 
 	// Show the first question
 	activeQ.classList.add("active");
+
+	// Show submit button
+	document.getElementById("submit").style.display="block";
 }
 
 // Check if the selected value is the correct answer
@@ -113,20 +123,19 @@ function nextQuestion(){
 		else {
 
 			document.getElementById("submit").style.display="none";
-			html = "<h4> You got " + correctAnswers + " correct!" + "</h4>";
+			html = "<h4 id='scoreText'> You got " + correctAnswers + " correct!" + "</h4>";
 			print(html);
 
 
 			var restart = document.createElement("button");
+			restart.id = "restartButton";
 			restart.innerHTML = "Restart Quiz";
-			restart.addEventListener("click", null);
+			restart.addEventListener("click", init);
 
 			var output = document.getElementById("resultsDiv");
 			output.appendChild(restart);
 		}
-	
-	
-
+		
 }
 
 
@@ -142,3 +151,4 @@ function print(message){
 
 
 init();
+
